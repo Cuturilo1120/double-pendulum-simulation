@@ -10,7 +10,6 @@ Target Grade: **6**
 
 * Implement a **sequential version** of the chosen problem in Python.
 * Implement a **parallelized version** using the `multiprocessing` library in Python.
-* Save at least one **output file** representing the state of the modeled system (by iterations).
 
 ---
 
