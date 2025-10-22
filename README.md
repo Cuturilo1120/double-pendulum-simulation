@@ -27,13 +27,18 @@ Let:
 
 The **angular accelerations** `α1, α2` are:
 
-\[
-\alpha_1 = \frac{-g(2 m_1 + m_2) \sin\theta_1 - m_2 g \sin(\theta_1 - 2\theta_2) - 2 \sin(\theta_1 - \theta_2) m_2 (\omega_2^2 L_2 + \omega_1^2 L_1 \cos(\theta_1 - \theta_2))}{L_1 (2 m_1 + m_2 - m_2 \cos(2\theta_1 - 2\theta_2))}
-\]
+```text
+num1 = -g*(2*m1+m2)*math.sin(theta1)
+num2 = -m2*g*math.sin(theta1-2*theta2)
+num3 = -2*math.sin(theta1-theta2)*m2*(omega2**2*L2 + omega1**2*L1*math.cos(theta1-theta2))
+den = L1*(2*m1+m2 - m2*math.cos(2*theta1-2*theta2))
+a1 = (num1+num2+num3)/den
 
-\[
-\alpha_2 = \frac{2 \sin(\theta_1 - \theta_2) \left( \omega_1^2 L_1 (m_1 + m_2) + g (m_1 + m_2) \cos\theta_1 + \omega_2^2 L_2 m_2 \cos(\theta_1 - \theta_2) \right)}{L_2 (2 m_1 + m_2 - m_2 \cos(2\theta_1 - 2\theta_2))}
-\]
+num1 = 2*math.sin(theta1-theta2)
+num2 = (omega1**2*L1*(m1+m2) + g*(m1+m2)*math.cos(theta1) + omega2**2*L2*m2*math.cos(theta1-theta2))
+den = L2*(2*m1+m2 - m2*math.cos(2*theta1-2*theta2))
+a2 = num1*num2/den
+```
 
 These accelerations are then used to **update angular velocities and angles** over time using **numerical integration methods**:
 
